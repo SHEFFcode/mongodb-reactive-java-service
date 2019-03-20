@@ -20,7 +20,7 @@ public class QuoteRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //        Flux<Quote> quoteFlux = stockQuoteClient.getQuoteStream(); // do it one way
-        Flux<Quote> quoteFlux = repository.findWithTailableCursorBy();  // do it another way
+        Flux<Quote> quoteFlux = repository.findWithTailableCursorBy();  // do it another way, whenever mogo inserts a new item, we will get it and print it.
 
         quoteFlux.subscribe(System.out::println);
     }
